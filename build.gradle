@@ -13,10 +13,17 @@ repositories {
 }
 
 dependencies {
+	// lombok
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+tasks.named('bootJar') {
+	enabled = false
 }
