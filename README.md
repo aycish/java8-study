@@ -7,5 +7,5 @@
 
 ---
 
-1. [동작 파라미터화와 람다식](https://github.com/aycish/java8-study/blob/main/src/main/java/me/aycish/java8to11/functional/behavior_lambda.md)
+1. [동작 파라미터화와 람다식](https://github.com/aycish/java8-study/tree/main/src/main/java/me/aycish/java8to11/behavior/behavior_lambda.md)
 
