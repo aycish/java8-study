@@ -2,7 +2,9 @@ package me.aycish.junit5;
 
 import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import java.time.Duration;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 public class JunitIntroductionTest {
@@ -25,6 +27,53 @@ public class JunitIntroductionTest {
     @Test
     void display_name_test() {
         System.out.println("do nothing");
+    }
+
+    @Test
+    void assertTest() {
+        String string = "Test String";
+        int testNumber = 5;
+        assertNotNull(string, () -> "문자열이 Null이다.");
+        assertEquals(testNumber, 5);
+        assertTrue(testNumber > 3);
+    }
+
+    @Test
+    void assertTest2() {
+        String string = "Test String";
+        int testNumber = 5;
+
+        // assertAll을 통해 assert들중 어떤것들이 위반되었는지 확인 가능
+        assertAll(
+                () -> assertNotNull(string, () -> "문자열이 Null이다."),
+                () -> assertEquals(testNumber, 4),
+                () -> assertTrue(testNumber > 5)
+        );
+    }
+
+    @Test
+    void createStudentTest() {
+        String name = "Hana";
+        int age = 7;
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> new Student(name, age));
+        String message = exception.getMessage();
+        assertEquals("나이가 너무 어립니다.", message);
+
+        // 100 milsec을 모두 기다린다.
+        assertAll(
+                () -> assertTimeout(Duration.ofMillis(100), () -> {
+                    new Student(name, age + 5);
+                    Thread.sleep(300);
+                }),
+
+                // ThreadLocal을 사용하는 경우, 예상치 못한 경우가 발생할 수 있다.
+                // Spring transaction을 사용하는 경우, Thread local을 공유하지 않으므로 적용이 안될 수 있다.
+                () -> assertTimeoutPreemptively(Duration.ofMillis(100), () -> {
+                    new Student(name, age + 3);
+                    Thread.sleep(400);
+                })
+        );
     }
 
     @BeforeAll

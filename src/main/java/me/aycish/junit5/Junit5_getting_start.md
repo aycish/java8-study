@@ -25,7 +25,7 @@
 - 스프링 부트 프로젝트 만들기
 - 2.2 + 버전 이상의 스프링 부트 프로젝트는 기본적으로 JUnit5 의존성이 추가됨
 
-```java
+```
 ## Gradle
 
 dependencies {
@@ -54,3 +54,27 @@ dependencies {
 ### [특징]
 
 - Junit5에서는 리플렉션을 사용하기 때문에, Public 메서드를 명시하지 않아도 사용할 수 있음
+
+## 3. Assertion
+
+---
+
+### [종류]
+
+- assertEqulas(expected, actual) : 실제 값이 기대한 값과 같은지 확인
+- assertNotNull(actual) : 값이 null이 아닌지 확인
+- assertTrue(boolean) : 다음 조건이 참(true)인지 확인
+- assertAll(executables...) : 모든 확인 구문 확인
+- assertThrows(expectedType, executable) : 예외 발생 확인
+- assertTimeout(duration, executable) : 특정 시간 안에 실행이 완료되는지 확인
+
+### [특징]
+- 마지막 매겨변수로 Supplier<String> 타입의 인스턴스를 람다 형태로 제공할 수 있다.
+- 만약 복잡한 메세지를 생성해야하는 경우, String 연산이 부담된다면 람다식을 통해 최대한 연산을 줄일 수 있다.
+- assertTimeoutPremtively의 경우, Thread Local을 공유하지 않기때문에, Spring transaction등을 사용하는 기능을 테스트할때에는 부적합할 수 있다. (TODO : threadlocal 알아보기)
+
+### [도움을 주는 라이브러리]
+
+- AssertJ
+- Hemcrest
+- Truth
