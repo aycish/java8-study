@@ -42,6 +42,15 @@ dependencies {
     - static이거나 void일 필요는 없으나, 보통 void 형으로 선언해서 사용
 - @Disabled
 
+### [테스트 이름 표기하기]
+
+- @DisplayNameGeneration
+  - Method와 Class 레퍼런스를 사용해서 테스트 이름을 표기하는 방법 설정
+  - 기본 구현체로 ReplaceUnderScores 제공
+- @Display
+  - 어떤 테스트인지 테스트 이름을 보다 쉽게 표현할 수 있는 방법을 제공하는 어노테이션
+  - @DIsplayNameGeneration보다 우선순위가 높다
+
 ### [특징]
 
 - Junit5에서는 리플렉션을 사용하기 때문에, Public 메서드를 명시하지 않아도 사용할 수 있음
