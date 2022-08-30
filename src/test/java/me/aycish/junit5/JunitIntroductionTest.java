@@ -1,10 +1,12 @@
 package me.aycish.junit5;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.*;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 public class JunitIntroductionTest {
@@ -74,6 +76,52 @@ public class JunitIntroductionTest {
                     Thread.sleep(400);
                 })
         );
+    }
+
+    @Test
+    @DisplayName("Assume test")
+    void assume_test() {
+        String test_env = System.getenv("TEST_ENV");
+        System.out.println(test_env);
+        assumeTrue("LOCAL".equalsIgnoreCase(System.getenv("TEST_ENV")));
+
+        // 상기 assume의 조건이 맞지 않기 때문에, 아랫 코드가 무시된다.
+        Student student = new Student("unhee", 30);
+        assertEquals(student.getAge(),30);
+    }
+
+    @Test
+    @DisplayName("Assume test2")
+    void assume_test2() {
+        String test_env = System.getenv("TEST_ENV");
+        System.out.println(test_env);
+        assumingThat("LOCAL".equalsIgnoreCase(System.getenv("TEST_ENV")), () -> {
+            System.out.println("Hwanhee");
+            Student student = new Student("hwanhee", 26);
+            assertEquals(student.getAge(),26);
+        });
+
+        assumingThat(System.getenv("TEST_ENV") == null, () -> {
+            System.out.println("Unhee");
+            Student student = new Student("unhee", 30);
+            assertEquals(student.getAge(),30);
+        });
+    }
+
+    @Test
+    @DisplayName("Check OS test")
+    @EnabledOnOs(OS.WINDOWS)
+    //@DisabledOnOs(OS.WINDOWS)
+    void testOs() {
+        System.out.println("Window");
+    }
+
+    @Test
+    @DisplayName("Check OS test")
+    @EnabledOnJre({JRE.JAVA_8, JRE.JAVA_9, JRE.JAVA_10, JRE.JAVA_11})
+    //@DisabledOnJre({JRE.JAVA_8, JRE.JAVA_9, JRE.JAVA_10, JRE.JAVA_11})
+    void testJava() {
+        System.out.println("Java 8,9,10,11");
     }
 
     @BeforeAll

@@ -78,3 +78,28 @@ dependencies {
 - AssertJ
 - Hemcrest
 - Truth
+
+## 4. 조건 테스트
+
+---
+
+특정한 조건을 만족하는 경우에 테스트를 실행하는 방법
+
+### [사용 법]
+
+import org.junit.jupiter.api.Assumptions.*
+
+- assumeTrue(조건)
+  - 특정 조건을 만족하지 않으면, 테스트가 무시된다.
+- assumingThat(조건, 테스트)
+  - 특정 조건을 만족했을 때, 지정한 동작을 수행하도록 할 수 있다.
+
+### [Enabled와 Disabled]
+
+어노테이션에 기재하여 특정 조건에 맞을 때, 테스트가 실행되도록 제어할 수 있다.
+
+- OnOs
+- OnJre
+- IfSystemProperty
+- IfEnvironmentVariable
+- If
