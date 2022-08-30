@@ -80,6 +80,7 @@ public class JunitIntroductionTest {
 
     @Test
     @DisplayName("Assume test")
+    @Tag("fast")
     void assume_test() {
         String test_env = System.getenv("TEST_ENV");
         System.out.println(test_env);
@@ -90,7 +91,7 @@ public class JunitIntroductionTest {
         assertEquals(student.getAge(),30);
     }
 
-    @Test
+    @SlowTest
     @DisplayName("Assume test2")
     void assume_test2() {
         String test_env = System.getenv("TEST_ENV");

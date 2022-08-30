@@ -26,7 +26,16 @@ springBoot {
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+	useJUnitPlatform {
+		excludeTags 'slow'
+	}
+}
+
+// `gradle slowTest`로 slow 태그가 붙은 테스트만 실행할 수 있다.
+task slowTest(type: Test) {
+	useJUnitPlatform {
+		includeTags 'slow'
+	}
 }
 
 tasks.named('bootJar') {
