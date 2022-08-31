@@ -2,9 +2,11 @@ package me.aycish.junit5;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class Student {
     private String name;
     int age;
@@ -17,6 +19,4 @@ public class Student {
         }
         this.age = age;
     }
-
-
 }
