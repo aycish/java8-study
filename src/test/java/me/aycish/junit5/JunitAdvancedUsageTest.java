@@ -1,9 +1,6 @@
 package me.aycish.junit5;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.RepetitionInfo;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.aggregator.AggregateWith;
@@ -14,18 +11,22 @@ import org.junit.jupiter.params.converter.ArgumentConversionException;
 import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.converter.SimpleArgumentConverter;
 import org.junit.jupiter.params.provider.*;
-import org.springframework.beans.factory.annotation.Value;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class JunitAdvancedUsageTest {
+
+    int valueOfClass = 1;
+    @Order(1)
     @DisplayName("반복 테스트... ")
     @RepeatedTest(value = 10, name = "{displayName}, {currentRepetition}/{totalRepetitions}")
     void testRepeat(RepetitionInfo repetitionInfo) {
         System.out.println("Repeat.." + repetitionInfo.getCurrentRepetition() + "/"
                 + repetitionInfo.getTotalRepetitions());
     }
-
+    @Order(2)
     @DisplayName("파라미터 테스트")
     @ParameterizedTest(name = "{index}th {displayName}.. count = {0}")
     @ValueSource(strings = {"1", "2", "3"})
@@ -33,6 +34,7 @@ public class JunitAdvancedUsageTest {
         System.out.println(count + "번째 횟수");
     }
 
+    @Order(3)
     @DisplayName("파라미터 테스트 심화")
     @ParameterizedTest(name = "{index}th {displayName}.. count = {0}")
     @ValueSource(strings = {"1", "2", "3"})
@@ -43,6 +45,7 @@ public class JunitAdvancedUsageTest {
         System.out.println(count + "번째 횟수");
     }
 
+    @Order(4)
     @DisplayName("파라미터 테스트 심화2")
     @ParameterizedTest(name = "{index}th {displayName}.. count = {0}")
     @ValueSource(ints = {1,2,3,4,5,})
@@ -50,6 +53,7 @@ public class JunitAdvancedUsageTest {
         System.out.println(value);
     }
 
+    @Order(5)
     @DisplayName("명시적 변환 테스트")
     @ParameterizedTest
     @ValueSource(ints = {10, 20, 30, 40, 50})
@@ -65,11 +69,28 @@ public class JunitAdvancedUsageTest {
         System.out.println(" 이름 : " + student.getName() + " 나이 : " + student.getAge());
     }
 
-    @DisplayName("Csv 테스트")
+    @Order(6)
+    @DisplayName("Csv 테스트2")
     @ParameterizedTest
     @CsvSource({"unhee,10", "unheejo,20", "unheeJo,30"})
     void testCsvSource2(@AggregateWith(StudentAggregator.class) Student student){
         System.out.println(" 이름 : " + student.getName() + " 나이 : " + student.getAge());
+    }
+
+    /* instance간 status가 유지되고 있음을 확인할 수 있다. */
+    @Order(7)
+    @DisplayName("인스턴스 테스트")
+    @Test
+    void testClassValue() {
+        System.out.println("value = " + this.valueOfClass ++);
+    }
+
+    @Order(7)
+    @DisplayName("인스턴스 테스트2")
+    @Test
+    @Disabled
+    void testClassValue2() {
+        System.out.println("value = " + this.valueOfClass ++);
     }
 
     static class StudentConverter extends SimpleArgumentConverter {
