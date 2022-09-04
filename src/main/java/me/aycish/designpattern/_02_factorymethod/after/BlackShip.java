@@ -1,4 +1,4 @@
-package me.aycish.designpattern.factorymethod.after;
+package me.aycish.designpattern._02_factorymethod.after;
 
 public class BlackShip extends Ship{
 

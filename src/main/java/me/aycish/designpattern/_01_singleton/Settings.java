@@ -1,4 +1,4 @@
-package me.aycish.designpattern.singleton;
+package me.aycish.designpattern._01_singleton;
 
 import java.io.Serializable;
 

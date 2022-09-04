@@ -1,7 +1,6 @@
-package me.aycish.designpattern.singleton;
+package me.aycish.designpattern._01_singleton;
 
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 public enum EnumSettings {

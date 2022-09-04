@@ -1,4 +1,4 @@
-package me.aycish.designpattern.factorymethod.before;
+package me.aycish.designpattern._02_factorymethod.before;
 
 public class ShipFactory  {
     public static Ship orderShip(String name, String email) {
