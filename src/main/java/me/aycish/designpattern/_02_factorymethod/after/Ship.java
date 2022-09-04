@@ -14,5 +14,4 @@ public class Ship {
 
     Wheel wheel;
     Anchor anchor;
-
 }
