@@ -27,5 +27,21 @@ public class App {
         }
 
         System.out.println(settings == serializedSettings);
+
+        /* 리플렉션 파훼법 막아보기 : enum */
+        EnumSettings enumSettings = EnumSettings.INSTANCE;
+        // 생성자를 가져오지 못한다.
+        /* Constructor<EnumSettings> constructor1 = EnumSettings.class.getConstructor();
+        constructor1.setAccessible(true);
+        EnumSettings reflectedEnumSettings = constructor1.newInstance(); */
+
+        EnumSettings reflectedEnumSettings = null;
+        Constructor<?>[] declaredConstructors = EnumSettings.class.getDeclaredConstructors();
+        for (Constructor<?> cons : declaredConstructors) {
+            cons.setAccessible(true);
+            reflectedEnumSettings = (EnumSettings) cons.newInstance("INSTANCE");
+        }
+
+        System.out.println(enumSettings == reflectedEnumSettings);
     }
 }
