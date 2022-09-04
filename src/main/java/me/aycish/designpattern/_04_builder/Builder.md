@@ -26,3 +26,13 @@
 
 - 원하는 객체를 만들려면 빌더부터 만들어야한다.
 - 프로젝트 구조가 복잡해진다. (트레이드 오프)
+
+### [실제 사용 사례]
+
+- 자바 8의 Stream.Builder API
+- StringBuilder, StringBuffer
+- 롬북의 @Builder - [link](https://projectlombok.org/features/Builder)
+- 스프링
+    - UriComponentsBuilder
+    - MockMvcWebClientBuilder
+    - …Builder
