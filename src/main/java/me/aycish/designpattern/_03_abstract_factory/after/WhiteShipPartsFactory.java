@@ -3,7 +3,10 @@ package me.aycish.designpattern._03_abstract_factory.after;
 import me.aycish.designpattern._03_abstract_factory.before.WhiteAnchor;
 import me.aycish.designpattern._03_abstract_factory.before.WhiteWheel;
 
-public class WhiteShipPratsFactory implements ShipPartsFactory {
+public class WhiteShipPartsFactory implements ShipPartsFactory {
+    public WhiteShipPartsFactory() {
+    }
+
     @Override
     public Anchor createAnchor() {
         return new WhiteAnchor();
