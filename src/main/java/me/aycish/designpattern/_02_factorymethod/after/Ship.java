@@ -12,6 +12,7 @@ public class Ship {
     String logo;
     String color;
 
-    WhiteWheel whiteWheel;
-    WhiteAnchor whiteAnchor;
+    WhiteWheel wheel;
+    WhiteAnchor anchor;
+
 }

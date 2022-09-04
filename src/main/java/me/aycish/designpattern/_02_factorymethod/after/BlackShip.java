@@ -1,9 +1,9 @@
 package me.aycish.designpattern._02_factorymethod.after;
 
-public class BlackShip extends Ship{
+public class BlackShip extends Ship {
 
     public BlackShip() {
-        setName("blackship");
+        setName("blackShip");
         setLogo("anchor");
         setColor("BLACK");
     }
