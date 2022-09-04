@@ -1,6 +1,8 @@
 package me.aycish.designpattern.singleton;
 
-public class Settings {
+import java.io.Serializable;
+
+public class Settings implements Serializable {
     private static Settings instance;
     /* eager initialization : 가벼운 클래스의 경우, synchronized 없이 사용할 수 있는 방법 */
     private static final Settings INSTANCE = new Settings();
@@ -43,5 +45,9 @@ public class Settings {
 
     public static  Settings getInnerClassInstance() {
         return SettingsHolder.INNER_INSTANCE;
+    }
+
+    protected Object readResolve() {
+        return getInstance();
     }
 }
