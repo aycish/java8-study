@@ -7,3 +7,4 @@
 1. [싱글톤 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_01_singleton/Singleton.md)
 2. [팩토리 메서드 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_02_factorymethod/FactoryMethodPattern.md)
 3. [추상 팩토리 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_03_abstract_factory/Abstract_factory.md)
+4. [빌더 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_04_builder/Builder.md)
