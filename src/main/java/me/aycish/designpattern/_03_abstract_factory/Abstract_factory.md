@@ -22,3 +22,12 @@
 - Factory 클래스에서 객체 생성 지원 범위
     - **팩토리 메서드 패턴**은 한 팩토리당 한 종류를 지원한다. (create()메서드가 Factory 클래스에 1개 존재)
     - **추상 팩토리 패턴**은 한 팩토리에서 서로 연관된 여러 종류를 모두 지원한다. (create()메서드가 팩토리 클래스에 여러개)
+
+### [실제 사용 사례]
+
+- 자바 라이브러리
+    - javax.xml.xpath.XPathFactory#newInstance()
+    - javax.xml.transform.TransformerFactory#newInstance()
+    - javax.xml.parsers.DocumentBuilderFactory#newInstance()
+- 스프링
+    - Factorybean과 그 구현체들
