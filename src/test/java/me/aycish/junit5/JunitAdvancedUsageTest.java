@@ -1,7 +1,9 @@
 package me.aycish.junit5;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.ParameterContext;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.aggregator.AggregateWith;
 import org.junit.jupiter.params.aggregator.ArgumentsAccessor;
@@ -14,15 +16,21 @@ import org.junit.jupiter.params.provider.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// Annotation으로 확장팩을 선언하는 방법, Extension 클래스의 필드들을 원하는 값으로 초기화해줄 수 없다.
+// @ExtendWith(FindSlowTestExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class JunitAdvancedUsageTest {
 
+    // 필드에 정의하여, Extension 클래스를 원하는 값으로 초기화 가능
+    @RegisterExtension
+    static FindSlowTestExtension findSlowTestExtension = new FindSlowTestExtension(10L);
     int valueOfClass = 1;
     @Order(1)
     @DisplayName("반복 테스트... ")
     @RepeatedTest(value = 10, name = "{displayName}, {currentRepetition}/{totalRepetitions}")
-    void testRepeat(RepetitionInfo repetitionInfo) {
+    void testRepeat(RepetitionInfo repetitionInfo) throws InterruptedException {
+        Thread.sleep(105L);
         System.out.println("Repeat.." + repetitionInfo.getCurrentRepetition() + "/"
                 + repetitionInfo.getTotalRepetitions());
     }

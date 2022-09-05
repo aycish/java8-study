@@ -245,3 +245,34 @@ task slowTest(type: Test) {
   org.junit.jupiter.api.DisplayNameGenerator$ReplaceUnderscores
 
     - @DIsplayName 보다는 우선순위가 낮다
+
+
+## 8. 확장 모델
+
+---
+
+### [확장 모델]
+
+- JUnit4 : @RunWith(Runner), TestRule, MethodRule.
+- JUnit5 : Extension
+
+### [확장팩 등록 방법]
+
+- @ExtendWith
+  - Test 클래스 상단에 어노테이션으로 지정
+  - 기본 생성자로 생성하기 때문에, Extension 클래스의 필드의 값을 커스터마이징할 수 없다.
+- @RegisterExtension
+  - 특정 생성자를 정의해두고, static으로 Test 클래스에 선언해 둔 뒤, 생성자를 호출하며 원하는 값으로 필드들을 초기화할 수 있다.
+- [ServiceLoader](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ServiceLoader.html)
+  - JUnit 설정 파일을 통해 설정 가능
+
+### [확장팩 만드는 방법] : [Ref](https://junit.org/junit5/docs/current/user-guide/#extensions) 참고
+
+- 테스트 실행 조건
+- 테스트 인스턴스 팩토리
+- 테스트 인스턴스 후-처리기
+- 테스트 매개변수 resolver
+- 테스트 라이프사이클 콜백
+- 예외처리
+- …
+
