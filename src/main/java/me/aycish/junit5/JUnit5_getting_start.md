@@ -276,3 +276,25 @@ task slowTest(type: Test) {
 - 예외처리
 - …
 
+
+## 9. JUnit5 마이그레이션
+
+---
+
+### [마이그레이션]
+
+- JUnit-vintage-engine을 의존성으로 추가하면, JUnit5의 Junit-platform으로 JUnit 3과 4로 작성된 테스트를 실행할 수 있다.
+- @Rule은 기본적으로 지원하지 않지만, junit-jupiter-migrationsupport 모듈이 제공하는 @EnableRuleMigrationSupport를 사용하면 여러 Rule 타입을 지원한다.
+  - ExternalResource
+  - Verifier
+  - ExpectedException
+- Spring boot를 사용한다면 기본적으로 vintage-engine이 포함되어 있지 않기 때문에, 추가해줘서 사용해야한다.
+
+### [JUnit5 vs JUnit4]
+
+| JUnit5 | JUnit4 |
+| --- | --- |
+| @Tag(String) | @Category(Class) |
+| @ExtendWith, @RegisterExtension | @RunWith, @Rule, @ClassRule |
+| @Disabled | @Ignore |
+| @BeforeEach, @AfterEach, @BeforeAll, @AfterAll | @Before, @After, @BeforeClass, @AfterClass |
