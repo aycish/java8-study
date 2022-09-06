@@ -1,24 +1,11 @@
 package me.aycish.designpattern._05_prototype.after;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class GithubRepository {
-
     private String user;
-
     private String name;
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

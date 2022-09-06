@@ -1,37 +1,19 @@
 package me.aycish.designpattern._05_prototype.after;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Objects;
 
+@Getter
+@Setter
 public class GithubIssue implements Cloneable {
 
     private int id;
-
     private String title;
-
     private GithubRepository repository;
-
     public GithubIssue(GithubRepository repository) {
         this.repository = repository;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public GithubRepository getRepository() {
-        return repository;
     }
 
     public String getUrl() {
@@ -41,6 +23,7 @@ public class GithubIssue implements Cloneable {
                 this.getId());
     }
 
+    // Object.clone은 얕은 복사를 지원한다. 깊은 복사를 원한다면, 따로 로직을 구현하자.
     @Override
     protected Object clone() throws CloneNotSupportedException {
         GithubRepository repository = new GithubRepository();

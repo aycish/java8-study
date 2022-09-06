@@ -17,7 +17,7 @@ public class App {
         GithubIssue clone = (GithubIssue) githubIssue.clone();
         System.out.println(clone.getUrl());
 
-        repository.setUser("Keesun");
+        repository.setUser("unhee");
 
         System.out.println(clone != githubIssue);
         System.out.println(clone.equals(githubIssue));
