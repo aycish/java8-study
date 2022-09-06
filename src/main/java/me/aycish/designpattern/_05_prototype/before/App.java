@@ -13,6 +13,9 @@ public class App {
 
         String url = githubIssue.getUrl();
         System.out.println(url);
+
+        /* TODO : 하고 싶은 것 */
+        // TODO GithubIssue clone = githubIssue.clone(); -> Object의 메서드이나 protected라 접근 불가능
     }
 
 }
