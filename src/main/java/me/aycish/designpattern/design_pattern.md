@@ -4,8 +4,12 @@
 
 ### [객체의 생성과 관련된 디자인 패턴]
 
-1. [싱글톤 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_01_singleton/Singleton.md)
-2. [팩토리 메서드 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_02_factorymethod/FactoryMethodPattern.md)
-3. [추상 팩토리 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_03_abstract_factory/Abstract_factory.md)
-4. [빌더 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_04_builder/Builder.md)
-5. [프로토타입 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_05_prototype/Prototype.md)
+1. [싱글톤 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_01_creational_patterns/_01_singleton/Singleton.md)
+2. [팩토리 메서드 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_01_creational_patterns/_02_factorymethod/FactoryMethodPattern.md)
+3. [추상 팩토리 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_01_creational_patterns/_03_abstract_factory/Abstract_factory.md)
+4. [빌더 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_01_creational_patterns/_04_builder/Builder.md)
+5. [프로토타입 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_01_creational_patterns/_05_prototype/Prototype.md)
+
+### [객체의 구성과 구조에 관련된 디자인 패턴]
+
+1. [어댑터 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_02_structural_patterns/_06_adapter/adapter.md)
