@@ -13,3 +13,4 @@
 ### [객체의 구성과 구조에 관련된 디자인 패턴]
 
 1. [어댑터 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_02_structural_patterns/_06_adapter/adapter.md)
+2. [브릿지 패턴](https://github.com/aycish/java8-study/blob/designPattern/src/main/java/me/aycish/designpattern/_02_structural_patterns/_07_bridge/bridge.md)
